@@ -58,9 +58,8 @@ void initialization(ifstream &inputFile) {
     }                        // ios is used get constants that can be used to modify code.
     
     secondFile.close();
-    // closing the file 
     
-    }
+}
 
  }
 
