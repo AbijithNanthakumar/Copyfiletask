@@ -1,9 +1,4 @@
-// #include <iostream> 
-// #include <fstream>
 
-// int main(){
-
-// }
 #include <fstream>
 #include <iostream>
 using namespace std;
@@ -17,42 +12,40 @@ void termination(ifstream &inputFile,ifstream &secondFile);
 void print(ifstream &inputFile,ifstream &secondFile);
 
 int main() {
-    ifstream inputFile("a.csv");
-    ifstream secondFile("b.csv");
+    ifstream inputFile("student.csv");
+    ifstream secondFile("teacher.csv");
     initialization(inputFile);
-
-    // while(!inputFile.eof()){
-    //     process("a.csv","b.csv");
-    // }
-    process("a.csv","b.csv");
+    process("student.csv","teacher.csv");
     print(inputFile,secondFile);
     termination(inputFile,secondFile);
     
     return 0;
 }
 
-// Initialization ::::::::::::::::::::::::::::::::::::
+// Initialization :
 void initialization(ifstream &inputFile) {
+    // a file is checked opened
     if (!inputFile.is_open()) {
-        cerr << "File 'a.csv' could not be opened or is missing.\n";
+        cerr << "File 'student.csv' could not be opened .\n";
         return;
     }
 
     ifstream secondfile("b.csv");
+
     if(!secondfile.is_open()){
         cout << "No file is created or formed \n";
-        fstream secfile("b.csv", ios::out | ios::trunc);
+        fstream secfile("teacher.csv", ios::out | ios::trunc);
     
     }
     else{        
         // Clear b.csv
-    ofstream secondFile("b.csv", ios::trunc); // ostream for open and write purpose
+    ofstream secondFile("teacher.csv", ios::trunc); // ostream for open and write purpose
                                               //:::: truc used to clear the data present in the csv file.
                       // Check if b.csv is empty
-    bool isCleared = check("b.csv");
+    bool isCleared = check("teacher.csv");
 
     if (isCleared) {
-        cout << " b.csv Data cleared.\n";
+        cout << " teacher.csv Data cleared.\n";
     } else {
         cout << " Data not cleared.\n";
     }                        // ios is used get constants that can be used to modify code.
@@ -63,8 +56,7 @@ void initialization(ifstream &inputFile) {
 
  }
 
-    
-
+// check
 bool check(const string &filename) {
     ifstream file(filename);
     return file.peek() == ifstream::traits_type::eof();   // ?
