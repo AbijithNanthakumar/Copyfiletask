@@ -42,27 +42,27 @@ void initialization(ifstream &inputFile) {
     if(!secondfile.is_open()){
         cout << "No file is created or formed \n";
         fstream secfile("b.csv", ios::out | ios::trunc);
-
+    
     }
-    else{
+    else{        
         // Clear b.csv
     ofstream secondFile("b.csv", ios::trunc); // ostream for open and write purpose
                                               //:::: truc used to clear the data present in the csv file.
-                                              // ios is used get constants that can be used to modify code.
-    
-    secondFile.close();
-    }
-
-    // Check if b.csv is empty
+                      // Check if b.csv is empty
     bool isCleared = check("b.csv");
 
     if (isCleared) {
         cout << " b.csv Data cleared.\n";
     } else {
         cout << " Data not cleared.\n";
+    }                        // ios is used get constants that can be used to modify code.
+    
+    secondFile.close();
+    // closing the file 
+    
     }
 
-    }
+ }
 
     
 
